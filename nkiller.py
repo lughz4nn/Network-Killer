@@ -119,7 +119,7 @@ def directed_attack(gateway,victim_target,ip_list,termux):
             final_targets.append(final_victim)
 
     if len(final_targets) == 0:
-        print(RED_COLOUR+'\nThere are not avaliable targets\n')
+        print(RED_COLOUR+'\nThere are not available targets\n')
         exit(1)
     else:
         pass
