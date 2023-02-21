@@ -65,6 +65,7 @@ def red_scan():
 
     all_ip = []
 
+
     for device in all_info:
 
         device = device.split('&')
@@ -73,10 +74,11 @@ def red_scan():
 
         all_ip.append(device[0])
 
+
     router_ip = input(GREEN_COLOUR+'\nType the router ip: '+WHITE_COLOUR)
 
     if router_ip not in all_ip:
-        print(RED_COLOUR+f'\nError, {router_ip} do not exist\n')
+        print(RED_COLOUR+f'\nError, {router_ip} does not exist\n')
         exit(1)
     else:
         pass
@@ -150,7 +152,9 @@ def directed_attack(gateway,victim_target,ip_list,termux):
             print(MAGENTA_COLOUR+'\rAttack Started')
             print(WHITE_COLOUR+'\nINFO: To kill the internet it can take up to a minute')
             print(Fore.LIGHTYELLOW_EX+"\nPress CTRL+C to stop")
-            os.system(command+' > /dev/null 2>&1')
+            while True:
+                os.system('timeout 50 '+command+' 2>/dev/null')
+                time.sleep(12)
         except KeyboardInterrupt:
             print(RED_COLOUR+'\n\nExiting\n')
             exit(1)
